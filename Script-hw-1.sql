@@ -37,10 +37,10 @@ where last_name = 'William';
 
 
 --Q5 What store employee (get the id) sold the most rentals?
--- salesperson 1 with 64,772,289 
+-- salesperson 2 with 16,008 
 select * from rental 
 
-select staff_id, sum(rental_id)
+select staff_id, sum(staff_id)
 from rental  
 group by staff_id 
 order by sum desc;
@@ -55,13 +55,13 @@ from address
 
 
 --Q7 What film has the most actors in it? (use film_actor table and get film_id)
--- fil 544 with 200 actors
+-- film 508 with 15 actors
 select * from film_actor 
 
-select film_id, max(actor_id)
+select film_id, count(actor_id)
 from film_actor 
 group by film_id
-order by max desc;
+order by count desc;
 
 
 --Q8 From store_id 1, how many customers have a last name ending with ‘es’? (use customer table)
@@ -75,7 +75,7 @@ order by store_id asc;
 
 
 --Q9 How many payment amounts (4.99, 5.99, etc.) had a number of rentals above 250 for customers with ids between 380 and 430? (use group by and having > 250)
--- 
+-- 3
 select * from payment 
 
 select amount, count(amount)
